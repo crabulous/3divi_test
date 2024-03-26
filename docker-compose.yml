@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  reciever:
+    build:
+      ./reciever
+    ports:
+      - "8001:8000"
+
+  handler:
+    build:
+        ./handler
+    ports:
+      - "8002:8000"
+
+  writer:
+    build:
+      ./writer
+    ports:
+      - "8004:8000"
+
+  client:
+    build:
+      ./client
+    depends_on:
+      - reciever
+      - handler
+      - writer
+    ports:
+      - "8003:8000"
+    networks:
+      - default
+
