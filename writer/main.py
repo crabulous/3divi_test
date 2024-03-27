@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Request
 import datetime
 import asyncio
-import os
 
 
 app = FastAPI()
@@ -10,11 +9,8 @@ write_lock = asyncio.Lock()
 
 
 async def write_to_file(file_name, content):
-    base_dir = "D:\PythonProjects\TestTask_3divi"
-    full_path = base_dir + file_name
-
     async with write_lock:
-        with open(full_path, "a") as file:
+        with open(file_name, "w+") as file:
             file.write(content + "\n")
 
 
