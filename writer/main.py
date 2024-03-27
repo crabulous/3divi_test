@@ -10,7 +10,7 @@ write_lock = asyncio.Lock()
 
 async def write_to_file(file_name, content):
     async with write_lock:
-        with open(file_name, "w+") as file:
+        with open(file_name, "A") as file:
             file.write(content + "\n")
 
 
