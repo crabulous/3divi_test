@@ -1,19 +1,11 @@
 from fastapi import FastAPI, Request
 import datetime
 import asyncio
-from pydantic import BaseModel
 import os
-
-
-# class RequestModel(BaseModel):
-#     id: int
-#     delay: int
-#     recieve_time: str
 
 
 app = FastAPI()
 
-# Создаём глобальную блокировку для асинхронной записи в файл
 write_lock = asyncio.Lock()
 
 
