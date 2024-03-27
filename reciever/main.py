@@ -15,5 +15,4 @@ async def recieve_request(request: Request):
     async with httpx.AsyncClient() as client:
         await client.post("http://handler:8000/handler/", json=request_data)
 
-    print(f"Request received at: {recieve_time}. Request ID: {request_data['id']}")
     return {"asyncAnswer": "Ok"}
