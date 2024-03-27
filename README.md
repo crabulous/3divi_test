@@ -27,3 +27,18 @@ To stop all running containers and remove them, you can use the following comman
 ```
 docker compose down --rmi all 
 ```
+
+## How to check result?
+In console print this commands:
+```
+docker exec -it testtask_3divi-writer-1 bash
+ls
+```
+Then choose a file to check:
+```
+cat processed_requests.txt
+```
+or
+```
+cat recieved_requests.txt
+```
